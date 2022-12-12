@@ -1,16 +1,23 @@
-# This is a sample Python script.
-
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
-
-
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
+import data
+from data import *
+water = data.resources['water']
+milk = data.resources['milk']
+coffee = data.resources['coffee']
+money = 0
 
 
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
+def resources():
+    quarters = 0.25
+    dimes = 0.10
+    nickles = 0.05
+    pennies = 0.01
 
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+
+def choice(action):
+    if action == "report":
+        return f"Water: {water}\nMilk: {milk}\nCoffee: {coffee}\nMoney: {money}"
+
+
+#   option report allow you to check the resources of ths machine
+option = input("What would you like? (espresso/latte/cappuccino): ")
+print(choice(option))
