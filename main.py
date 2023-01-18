@@ -1,5 +1,5 @@
 import data
-
+import time
 
 # quarters = 0.25
 # dimes = 0.10
@@ -7,18 +7,22 @@ import data
 # pennies = 0.01
 
 def payments(action):
+
     print("Please insert coins")
     q = int(input("How many quarters?: "))
     d = int(input("How many dimes?: "))
     n = int(input("How many nickles?: "))
     p = int(input("How many pennies?: "))
+    print('─' * 50)
     inserted_money = q * 0.25 + d * 0.10 + n * 0.05 + p * 0.01
+    print(f"Sum of your inserted coins: {inserted_money}")
     if inserted_money < data.MENU[action]['cost']:
         print("You inserted too low coins")
+        time.sleep(2)
         return False
     else:
         rest = round(inserted_money - data.MENU[action]['cost'], 2)
-        print(f"Your money: ${inserted_money}. Here is ${rest} in change")
+        print(f"Here is ${rest} in change")
         return True
 
 
@@ -26,24 +30,34 @@ def game():
     water = data.resources['water']
     milk = data.resources['milk']
     coffee = data.resources['coffee']
-    money = 0  # money = inserted coins - price of coffee
+    money = 0
     isEnough = True
     off = False
     while not off:
-        #   option report allow you to check the resources of ths machine
-        for x,y in data.MENU.items():
+        print(data.logo)
+
+        print("What would you like? (espresso/latte/cappuccino)")
+        for x, y in data.MENU.items():
             print(f"{x} cost ${y['cost']}")
-        option = input("What would you like? (espresso/latte/cappuccino): ")
+        print('─' * 50)
+        print("Others available options:\n'off' - exit\n'report' - shows report about resources\n'restart' - sestores resources")
+
+        print('─' * 50)
+        option = input("Type what you choose: ").lower()
 
         if option == "report":
+            print("Available resources: ")
             print(f"Water: {water}ml\nMilk: {milk}ml\nCoffee: {coffee}g\nMoney: ${money}")
+            time.sleep(3)
         elif option == "off":
             off = True
         elif option == "restart":
             water = data.resources['water']
             milk = data.resources['milk']
             coffee = data.resources['coffee']
-            money = 0  # money = inserted coins - price of coffee
+            money = 0
+            print("Restoring resources...")
+            time.sleep(2)
         else:
             if option == "espresso":
 
@@ -63,6 +77,7 @@ def game():
                         money += data.MENU['espresso']['cost']
                         print("Here is your espresso. Enjoy")
                         isEnough = True
+                        time.sleep(3)
             elif option == "latte":
                 if water < data.MENU['latte']['ingredients']['water']:
                     print("Sorry there is not enough water")
@@ -84,6 +99,7 @@ def game():
                         money += data.MENU['latte']['cost']
                         print("Here is your latte. Enjoy")
                         isEnough = True
+                        time.sleep(3)
 
             elif option == "cappuccino":
                 if water < data.MENU['cappuccino']['ingredients']['water']:
@@ -106,13 +122,11 @@ def game():
                         money += data.MENU['cappuccino']['cost']
                         print("Here is your cappuccino. Enjoy")
                         isEnough = True
+                        time.sleep(3)
 
             else:
-                print("You typed wrong value.")
-
-        # if (option == "espresso" or option == "latte" or option == "cappuccino") and isEnough:
+                print("\nYou typed wrong value.")
+                time.sleep(1)
 
 
 game()
-
-
