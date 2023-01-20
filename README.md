@@ -11,5 +11,6 @@ Program after starting, leads user what should do.
 python main.py
 
 ## Screenshot
-![coffee_machine](https://user-images.githubusercontent.com/119300086/213790742-05ad2994-bd68-4c5e-b41b-4b109cf9b3c2.PNG)
+![coffee_machine](https://user-images.githubusercontent.com/119300086/213811463-51f77bf6-02da-4360-9bdf-1f726bd9bd5f.PNG)
+
 
