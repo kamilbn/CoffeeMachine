@@ -40,7 +40,7 @@ def game():
         for x, y in data.MENU.items():
             print(f"{x} cost ${y['cost']}")
         print('─' * 50)
-        print("Others available options:\n'off' - exit\n'report' - shows report about resources\n'restart' - sestores resources")
+        print("Others available options:\n'off' - exit\n'report' - shows report about resources\n'restart' - restores resources")
 
         print('─' * 50)
         option = input("Type what you choose: ").lower()
